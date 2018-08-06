@@ -8,12 +8,12 @@ export const animalClient = {
     return axios.get(`/animals/${id}`);
   },
   create(animal) {
-    axios.post('/animals', animal);
+    return axios.post('/animals', animal);
   },
   update(animal) {
-    axios.put('/animals', animal);
+    return axios.put('/animals', animal);
   },
   delete(id) {
-    axios.delete('/animals/' + id);
+    return axios.delete('/animals/' + id);
   }
 };
