@@ -62,8 +62,8 @@
       beginUpdatingAnimal(animal) {
         modals.beginEditing(animal);
       },
-      beginDeletingAnimal(id) {
-        modals.beginDeleting(id);
+      beginDeletingAnimal(animal) {
+        modals.beginDeleting(animal);
       }
     }
   }

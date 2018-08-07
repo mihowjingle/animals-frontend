@@ -1,7 +1,7 @@
 <template>
   <sui-modal size="mini" v-model="show" :closable="false"> <!-- TODO play around with different animations -->
     <sui-modal-header>
-      Delete animal?
+      Delete animal {{ animal.name }}?
     </sui-modal-header>
     <sui-modal-content>
       <p>
@@ -36,12 +36,12 @@
     data() {
       return {
         show: false,
-        id: null
+        animal: { id: null, name: '' }
       };
     },
     methods: {
       deleteAnimal() {
-        animalClient.delete(this.id).then((response) => {
+        animalClient.delete(this.animal.id).then((response) => {
           this.$emit('success', response);
           this.show = false;
         });
@@ -51,8 +51,8 @@
       }
     },
     created() {
-      modals.$on('beginDeletingAnimal', (id) => {
-        this.id = id;
+      modals.$on('beginDeletingAnimal', (animal) => {
+        this.animal = animal;
         this.show = true;
       });
     }

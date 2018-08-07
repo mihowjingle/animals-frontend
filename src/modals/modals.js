@@ -8,8 +8,8 @@ export const modals = new Vue({
     beginEditing(animal) {
       this.$emit('beginEditingAnimal', animal);
     },
-    beginDeleting(id) {
-      this.$emit('beginDeletingAnimal', id);
+    beginDeleting(animal) {
+      this.$emit('beginDeletingAnimal', animal);
     }
   }
 });
