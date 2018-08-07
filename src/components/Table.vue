@@ -21,6 +21,7 @@
 </template>
 
 <script>
+  import { modals } from "../modals/modals";
   import SuiTable from "semantic-ui-vue/dist/commonjs/collections/Table/Table";
   import SuiTableHeader from "semantic-ui-vue/dist/commonjs/collections/Table/TableHeader";
   import SuiTableHeaderCell from "semantic-ui-vue/dist/commonjs/collections/Table/TableHeaderCell";
@@ -43,10 +44,10 @@
     props: ['animals'],
     methods: {
       beginUpdatingAnimal(animal) {
-        this.$emit('updateRequested', animal);
+        modals.beginEditing(animal);
       },
       beginDeletingAnimal(animal) {
-        this.$emit('deleteRequested', animal);
+        modals.beginDeleting(animal);
       }
     }
   }

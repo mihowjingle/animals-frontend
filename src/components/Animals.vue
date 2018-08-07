@@ -1,11 +1,7 @@
 <template>
   <div>
     <sui-header>Animals</sui-header>
-    <ani-table
-      :animals="animals"
-      @updateRequested="beginUpdatingAnimal"
-      @deleteRequested="beginDeletingAnimal"
-    ></ani-table>
+    <ani-table :animals="animals"></ani-table>
 
     <sui-button
       icon="plus"
@@ -58,12 +54,6 @@
       },
       beginCreatingAnimal() {
         modals.beginCreating();
-      },
-      beginUpdatingAnimal(animal) {
-        modals.beginEditing(animal);
-      },
-      beginDeletingAnimal(animal) {
-        modals.beginDeleting(animal);
       }
     }
   }
