@@ -18,6 +18,7 @@
 
     <ani-new-animal @success="reload"></ani-new-animal>
     <ani-update-animal @success="reload"></ani-update-animal>
+    <ani-delete-animal @success="reload"></ani-delete-animal>
   </div>
 </template>
 
@@ -26,9 +27,10 @@
   import { modals } from "../modals/modals";
   import SuiButton from "semantic-ui-vue/dist/commonjs/elements/Button/Button";
   import SuiHeader from "semantic-ui-vue/dist/commonjs/elements/Header/Header";
-  import Table from './Table.vue';
-  import NewAnimal from './NewAnimal.vue';
-  import UpdateAnimal from './UpdateAnimal.vue';
+  import Table from "./Table.vue";
+  import NewAnimal from "./NewAnimal.vue";
+  import UpdateAnimal from "./UpdateAnimal.vue";
+  import DeleteAnimal from "./DeleteAnimal.vue"
 
   export default {
     name: 'HelloWorld',
@@ -37,7 +39,8 @@
       SuiButton,
       'ani-table': Table,
       'ani-new-animal': NewAnimal,
-      'ani-update-animal': UpdateAnimal
+      'ani-update-animal': UpdateAnimal,
+      'ani-delete-animal': DeleteAnimal
     },
     data() {
       return {
@@ -60,7 +63,6 @@
         modals.beginEditing(animal);
       },
       beginDeletingAnimal(id) {
-        // TODO animalClient.delete(id).then(this.reload);
         modals.beginDeleting(id);
       }
     }
