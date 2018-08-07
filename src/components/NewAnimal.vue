@@ -20,6 +20,7 @@
 
 <script>
   import { animalClient } from "../rest/animal-client";
+  import { modals } from "../modals/modals";
   import SuiModal from "semantic-ui-vue/dist/commonjs/modules/Modal/Modal";
   import SuiModalHeader from "semantic-ui-vue/dist/commonjs/modules/Modal/ModalHeader";
   import SuiModalContent from "semantic-ui-vue/dist/commonjs/modules/Modal/ModalContent";
@@ -41,10 +42,10 @@
       SuiModal,
       SuiButton
     },
-    props: ['show'],
     data() {
       return {
-        newAnimalName: ''
+        newAnimalName: '',
+        show: false
       }
     },
     methods: {
@@ -52,12 +53,18 @@
         animalClient.create({ id: null, name: this.newAnimalName }).then((response) => {
           this.newAnimalName = '';
           this.$emit('success', response);
+          this.show = false;
         });
       },
       cancel() {
         this.newAnimalName = '';
-        this.$emit('cancel', {});
+        this.show = false;
       }
+    },
+    created() {
+      modals.$on('beginCreatingAnimal', () => {
+        this.show = true;
+      });
     }
   }
 </script>

@@ -10,16 +10,12 @@
     <sui-button
       icon="plus"
       label-position="left"
-      @click="showNewModal = true"
+      @click="beginCreatingAnimal"
     >
       Add animal
     </sui-button>
 
-    <ani-new-animal
-      :show="showNewModal"
-      @success="reload"
-      @cancel="showNewModal = false"
-    ></ani-new-animal>
+    <ani-new-animal @success="reload"></ani-new-animal>
     <ani-update-animal @success="reload"></ani-update-animal>
   </div>
 </template>
@@ -44,8 +40,7 @@
     },
     data() {
       return {
-        animals: [],
-        showNewModal: false
+        animals: []
       }
     },
     mounted() {
@@ -56,7 +51,9 @@
         animalClient.getAll().then((response) => {
           this.animals = response.data;
         });
-        this.showNewModal = false;
+      },
+      beginCreatingAnimal() {
+        modals.beginCreating();
       },
       beginUpdatingAnimal(animal) {
         modals.beginEditing(animal);
