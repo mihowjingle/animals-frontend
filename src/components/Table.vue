@@ -12,8 +12,8 @@
         <sui-table-cell collapsing>{{ animal.id }}</sui-table-cell>
         <sui-table-cell>{{ animal.name }}</sui-table-cell>
         <sui-table-cell collapsing>
-          <sui-icon name="edit outline" color="blue" size="large"></sui-icon>
-          <sui-icon name="trash alternate outline" color="red" size="large"></sui-icon>
+          <sui-icon name="edit outline" color="blue" size="large" @click="beginUpdatingAnimal(animal)" style="cursor: pointer"></sui-icon>
+          <sui-icon name="trash alternate outline" color="red" size="large" @click="beginDeletingAnimal(animal.id)" style="cursor: pointer"></sui-icon>
         </sui-table-cell>
       </sui-table-row>
     </sui-table-body>
@@ -40,7 +40,15 @@
       SuiTableHeader,
       SuiTable
     },
-    props: ['animals']
+    props: ['animals'],
+    methods: {
+      beginUpdatingAnimal(animal) {
+        this.$emit('updateRequested', animal);
+      },
+      beginDeletingAnimal(id) {
+        this.$emit('deleteRequested', id);
+      }
+    }
   }
 </script>
 
