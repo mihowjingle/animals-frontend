@@ -13,7 +13,7 @@
     </sui-modal-content>
     <sui-modal-actions>
       <sui-button @click="cancel">Cancel</sui-button>
-      <sui-button positive @click="updateAnimal" :disabled="animal.name.length < 1">Save</sui-button>
+      <sui-button primary @click="updateAnimal" :disabled="animal.name.length < 1">Update</sui-button>
     </sui-modal-actions>
   </sui-modal>
 </template>

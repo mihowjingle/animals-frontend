@@ -11,6 +11,7 @@
       icon="plus"
       label-position="left"
       @click="beginCreatingAnimal"
+      positive
     >
       Add animal
     </sui-button>
