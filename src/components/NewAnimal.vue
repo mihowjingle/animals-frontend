@@ -1,5 +1,5 @@
 <template>
-  <sui-modal size="mini" v-model="show" :closable="false">
+  <sui-modal size="mini" v-model="show" :closable="false"> <!-- TODO play around with different animations -->
     <sui-modal-header>
       New animal
     </sui-modal-header>
@@ -55,6 +55,7 @@
         });
       },
       cancel() {
+        this.newAnimalName = '';
         this.$emit('cancel', {});
       }
     }

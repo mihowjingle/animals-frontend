@@ -9,7 +9,7 @@
     </sui-table-header>
     <sui-table-body>
       <sui-table-row v-for="animal in animals" :key="animal.id">
-        <sui-table-cell>{{ animal.id }}</sui-table-cell>
+        <sui-table-cell collapsing>{{ animal.id }}</sui-table-cell>
         <sui-table-cell>{{ animal.name }}</sui-table-cell>
         <sui-table-cell collapsing>
           <sui-icon name="edit outline" color="blue" size="large"></sui-icon>
