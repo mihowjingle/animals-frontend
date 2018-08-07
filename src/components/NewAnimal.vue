@@ -13,7 +13,7 @@
     </sui-modal-content>
     <sui-modal-actions>
       <sui-button @click="cancel">Cancel</sui-button>
-      <sui-button positive @click="saveNewAnimal" :disabled="newAnimalName.length < 1">Save</sui-button>
+      <sui-button positive @click="saveNewAnimal" :disabled="!valid">Save</sui-button>
     </sui-modal-actions>
   </sui-modal>
 </template>
@@ -48,13 +48,20 @@
         show: false
       }
     },
+    computed: {
+      valid() {
+        return this.newAnimalName.length >= 1;
+      }
+    },
     methods: {
       saveNewAnimal() {
-        animalClient.create({ id: null, name: this.newAnimalName }).then((response) => {
-          this.newAnimalName = '';
-          this.$emit('success', response);
-          this.show = false;
-        });
+        if (this.valid) {
+          animalClient.create({ id: null, name: this.newAnimalName }).then((response) => {
+            this.newAnimalName = '';
+            this.$emit('success', response);
+            this.show = false;
+          });
+        }
       },
       cancel() {
         this.newAnimalName = '';
