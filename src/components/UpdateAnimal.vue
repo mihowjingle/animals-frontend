@@ -1,5 +1,5 @@
 <template>
-  <sui-modal size="mini" v-model="show" :closable="false"> <!-- TODO play around with different animations -->
+  <sui-modal size="mini" v-model="show" :closable="false">
     <sui-modal-header>
       Update animal
     </sui-modal-header>
