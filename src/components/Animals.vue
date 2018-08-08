@@ -20,7 +20,7 @@
 
 <script>
   import { animalClient } from "../rest/animal-client";
-  import { modals } from "../modals/modals";
+  import { modals } from "../animals/modals";
   import SuiButton from "semantic-ui-vue/dist/commonjs/elements/Button/Button";
   import SuiHeader from "semantic-ui-vue/dist/commonjs/elements/Header/Header";
   import Table from "./Table.vue";

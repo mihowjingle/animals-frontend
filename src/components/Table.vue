@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import { modals } from "../modals/modals";
+  import { modals } from "../animals/modals";
   import SuiTable from "semantic-ui-vue/dist/commonjs/collections/Table/Table";
   import SuiTableHeader from "semantic-ui-vue/dist/commonjs/collections/Table/TableHeader";
   import SuiTableHeaderCell from "semantic-ui-vue/dist/commonjs/collections/Table/TableHeaderCell";
